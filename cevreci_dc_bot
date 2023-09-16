@@ -36,4 +36,4 @@ async def mim3(ctx):
    # Daha sonra bu dosyayı bir parametre olarak gönderebiliriz!
     await ctx.send(file=picture)
 
-bot.run("MTE0NTA1NDI4NDkxNjk4NTkzNw.GpsOYW.0t4n9KwV18DPrDKmSc-xBjrK73CL6-22AexGes")
+bot.run("token here")
