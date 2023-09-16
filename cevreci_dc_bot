@@ -1,0 +1,39 @@
+import discord
+from discord.ext import commands
+
+# ayricaliklar (intents) değişkeni botun ayrıcalıklarını depolayacak
+intents = discord.Intents.default()
+# Mesajları okuma ayrıcalığını etkinleştirelim
+intents.message_content = True
+# client (istemci) değişkeniyle bir bot oluşturalım ve ayrıcalıkları ona aktaralım
+bot = commands.Bot(command_prefix='$', intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f'{bot.user} olarak giriş yaptık')
+
+@bot.command()
+async def merhaba(ctx):
+    await ctx.send(f'Merhaba {bot.user}! Ben bir botum!')
+
+@bot.command()
+async def cevre_kirliliği_nasil_onlenir(ctx):
+    await ctx.send(f'1- Geri dönüşüm yapilabilir! \n \n Geri Dönüşüm Nasıl Yapılır? \n \n Geri dönüşüm işlemi dört aşamada gerçekleşir, işte bunlardan birisi: \n \n 1- Kaynakta ayrı toplanması \n Değerlendirilebilir atıklar, oluştukları yerde çöplerden ayrılarak biriktirilir. \n \n Ambalaj atıklarının diğer atıklardan ayrı olarak oluştukları yerlerde ayrı olarak biriktirilmesi zorunludur. \n \n 28.12.2017 tarih ve 30283 sayılı Resmi Gazete’de yayımlanarak yürürlüğe giren Ambalaj Atıklarının Kontrolü Yönetmeliği kapsamında, \n \n Ambalaj atığı üreticileri, ambalaj atıklarını, bağlı bulundukları belediyenin ambalaj atıkları yönetim planına uygun olarak, ayrı biriktirmek ve belediyelerce belirlenen şekilde belediyenin toplama sistemine veya atık getirme merkezlerine vermekle yükümlüdür. \n \n Kaynağında ayrı toplama uygulamalarında, tüketicilerin evlerinde ya da işyerlerinde evsel atıklardan ayrı olarak biriktirdikleri ambalaj atıklarının düzenli olarak belediyeler ya da anlaşmalı oldukları Lisanslı Toplama Ayırma Tesisleri tarafından alınması gerekmektedir. \n \n Kaynağında Ayrı Toplama Uygulamalarında, ambalaj atıklarının ayrı toplanabilmesi için konteynır, kumbara, iç mekân kutuları ve geri kazanım torbaları gibi ekipmanlar kullanılmaktadır. \n \n Ben çevreci bot, ve sana yardımcı olduysam bundan büyük mutluluk duyarım \U0001f642')
+
+#@bot.command()
+#async def yardım(ctx):
+#    await ctx.send("\U0001f642")
+
+@bot.command()
+async def bye(ctx):
+    await ctx.send("\U0001f642")
+
+@bot.command()
+async def mim3(ctx):
+    with open('aa\images\mim3.png', 'rb') as f:
+        # Dönüştürülen Discord kütüphane dosyasını bu değişkende saklayalım!
+        picture = discord.File(f)
+   # Daha sonra bu dosyayı bir parametre olarak gönderebiliriz!
+    await ctx.send(file=picture)
+
+bot.run("MTE0NTA1NDI4NDkxNjk4NTkzNw.GpsOYW.0t4n9KwV18DPrDKmSc-xBjrK73CL6-22AexGes")
